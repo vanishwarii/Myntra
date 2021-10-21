@@ -1,0 +1,32 @@
+<div class="welcome">
+  <h1>Welcome Back</h1>
+</div>
+    <div class="login">
+      <form [formGroup]="angForm">
+        <div class="login__email">
+          <label class="login__labelEmail"><b>Email Address</b></label><br>
+          <input type="email" class="login__emailInput" formControlName="email" #email/>
+          <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+            <!-- <div *ngIf="angForm.controls['email'].errors.required">
+              Email is required.
+            </div> -->
+          </div>
+        </div>
+        <div class="password">
+          <label class="login__labelpassword"><b>Password</b></label><br>
+          <input type="password" class="login__passwordInput" formControlName="password" #password/>
+          <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+            <!-- <div *ngIf="angForm.controls['password'].errors.required">
+              password is required.
+            </div> -->
+          </div>
+        </div>
+        <div class="login__button">
+          <button (click)="addUser(email.value,password.value)" 
+              class="login__buttonBox"
+              [disabled]="angForm.pristine || angForm.invalid">Login</button>
+        </div>
+      </form>
+    </div>
+  
+ 
